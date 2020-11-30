@@ -126,6 +126,7 @@ namespace Kinulo
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (_agile == 0 || _v0 == 0)
             {
                 textBox2.BackColor = Color.Red;
@@ -133,6 +134,7 @@ namespace Kinulo
             }
             else
             {
+                
 
                 double rad = _agile * (Math.PI / 180.0);
 
@@ -140,6 +142,9 @@ namespace Kinulo
                 _vx = (Math.Cos(rad)) * _v0;
                 int vy = Convert.ToInt32(_vy);
                 int vx = Convert.ToInt32(_vx);
+
+                textBox6.Text = Convert.ToString((((_vy)*(_vy)/20)+_h0)/_dev);
+
                 //button1.Text = Convert.ToString(_vy);
                 //  button2.Text = Convert.ToString(vy);
                 Graphics g = pictureBox1.CreateGraphics();
