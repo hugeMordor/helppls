@@ -126,6 +126,9 @@ namespace Kinulo
 
         private void button2_Click(object sender, EventArgs e)
         {
+            textBox6.ReadOnly = true;
+            textBox7.ReadOnly = true;
+            textBox8.ReadOnly = true;
 
             if (_agile == 0 || _v0 == 0)
             {
@@ -143,10 +146,11 @@ namespace Kinulo
                 int vy = Convert.ToInt32(_vy);
                 int vx = Convert.ToInt32(_vx);
 
-                textBox6.Text = Convert.ToString((((_vy)*(_vy)/20)+_h0)/_dev);
-
-                //button1.Text = Convert.ToString(_vy);
-                //  button2.Text = Convert.ToString(vy);
+                double time;
+                time = ((_vy + (Math.Sqrt((_vy * _vy) + 2 * 10 * _h0)))) / 10;
+                textBox6.Text = Convert.ToString((((_vy) * (_vy) / 20) + _h0) / _dev);
+                textBox7.Text = Convert.ToString(time); // время, не работает
+                textBox8.Text = Convert.ToString(time*_vx); // по формуле вроде так, но надо починить время
                 Graphics g = pictureBox1.CreateGraphics();
                 Pen blackPen1 = new Pen(Color.Black, 2);
                 double x = 0, y = 0;
